@@ -4,148 +4,522 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#071426">
-  <title>Radio Voz del Cielo</title>
+  <meta name="theme-color" content="#081321">
+  <meta name="description" content="Radio Voz del Cielo: prédicas, programas cristianos y transmisiones para fortalecer tu fe.">
+  <title>Radio Voz del Cielo | Fe y esperanza</title>
   <style>
+    :root {
+      --bg: #081321;
+      --panel: #101f31;
+      --gold: #e9bd72;
+      --white: #f8f7f3;
+      --muted: #aab8c9;
+      --line: rgba(255,255,255,.12);
+    }
+
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #071426;
-      color: white;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
     }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
     header {
-      text-align: center;
-      padding: 24px 12px;
-      border-bottom: 1px solid #29405a;
+      position: relative;
+      border-bottom: 1px solid var(--line);
+      background: #081321;
     }
-    .logo { font-size: 23px; font-weight: 900; }
-    .gold { color: #f5bd55; }
+
+    .topbar {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-symbol {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 22px;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: 1.1px;
+    }
+
+    .brand-name span {
+      display: block;
+      color: var(--gold);
+    }
+
     nav {
       display: flex;
-      justify-content: center;
-      gap: 18px;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 24px;
       flex-wrap: wrap;
-      padding: 18px 10px;
     }
+
     nav a {
-      color: white;
       text-decoration: none;
-      font-size: 14px;
+      color: #d9e1eb;
+      font-size: 13px;
     }
+
+    nav a:hover { color: var(--gold); }
+
     .hero {
+      overflow: hidden;
+      position: relative;
       text-align: center;
-      padding: 65px 20px;
-      background: radial-gradient(ellipse at top, #19436a, #071426 75%);
+      padding: 100px 18px 90px;
+      background:
+        radial-gradient(ellipse at 50% 0%, #244665 0%, transparent 58%),
+        linear-gradient(180deg, #0b1c2f, var(--bg));
+      border-bottom: 1px solid var(--line);
     }
-    .tag {
-      color: #f5bd55;
-      font-size: 12px;
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border: 1px solid rgba(233,189,114,.13);
+      border-radius: 50%;
+      top: -240px;
+      left: calc(50% - 180px);
+      box-shadow: 0 0 0 35px rgba(233,189,114,.025),
+                  0 0 0 70px rgba(233,189,114,.02);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 780px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
       letter-spacing: 3px;
+      font-size: 11px;
       font-weight: bold;
     }
-    h1 { font-size: clamp(36px, 9vw, 56px); margin: 22px 0; }
-    .hero p {
-      color: #cfdae8;
-      line-height: 1.7;
-      max-width: 520px;
-      margin: 0 auto 28px;
+
+    h1 {
+      font-size: clamp(38px, 7vw, 70px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin: 24px 0;
     }
+
+    h1 span { color: var(--gold); }
+
+    .hero p {
+      max-width: 610px;
+      margin: 0 auto 30px;
+      color: #c0ccda;
+      font-size: 16px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
     .button {
       display: inline-block;
-      background: #f5bd55;
-      color: #071426;
       text-decoration: none;
-      padding: 14px 22px;
-      border-radius: 30px;
+      padding: 13px 21px;
+      border: 1px solid var(--gold);
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .button-primary {
+      background: var(--gold);
+      color: #101723;
+    }
+
+    .button-secondary {
+      color: var(--white);
+      background: transparent;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .promise {
+      border-bottom: 1px solid var(--line);
+      background: #0b1929;
+    }
+
+    .promise-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+      padding: 22px 0;
+    }
+
+    .promise-item {
+      padding: 5px 12px;
+      color: #dbe3ed;
+      font-size: 12px;
+      letter-spacing: .7px;
+    }
+
+    .promise-item + .promise-item {
+      border-left: 1px solid var(--line);
+    }
+
+    .promise-item span {
+      display: block;
+      color: var(--gold);
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+
+    main { padding: 68px 0; }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(27px, 4vw, 38px);
+      letter-spacing: -.8px;
+      margin: 8px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 590px;
+      font-size: 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      scroll-margin-top: 25px;
+      min-width: 0;
+      padding: 25px 20px;
+      background: linear-gradient(145deg, #14263a, #0d1b2b);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      border-color: rgba(233,189,114,.65);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(233,189,114,.4);
+      border-radius: 7px;
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin: 0 0 9px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+      min-height: 63px;
+      margin: 0 0 18px;
+    }
+
+    .card-link {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .card-link:hover { text-decoration: underline; }
+
+    .notice {
+      margin-top: 26px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--gold);
+      background: rgba(233,189,114,.06);
+      color: #c4cfdd;
+      font-size: 13px;
+    }
+
+    .quote {
+      padding: 55px 25px;
+      text-align: center;
+      background: linear-gradient(120deg, #142940, #0c1929);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quote blockquote {
+      max-width: 750px;
+      margin: 0 auto 15px;
+      font-size: clamp(23px, 4vw, 36px);
+      line-height: 1.35;
       font-weight: bold;
     }
-    main { max-width: 1000px; margin: auto; padding: 30px 18px 55px; }
-    .intro { color: #bdcadb; line-height: 1.7; }
-    .grid {
+
+    .quote blockquote span { color: var(--gold); }
+
+    .quote p {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+    }
+
+    .about {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 25px;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 45px;
+      align-items: center;
+      padding-top: 65px;
     }
-    .card {
-      background: #102238;
-      border: 1px solid #29405a;
-      border-radius: 16px;
-      padding: 23px;
-      scroll-margin-top: 15px;
+
+    .about h2 {
+      font-size: 30px;
+      line-height: 1.2;
+      margin: 10px 0 16px;
     }
-    .icon { font-size: 32px; }
-    .card p { color: #bdcadb; line-height: 1.6; font-size: 14px; }
-    .status { color: #f5bd55; font-size: 11px; font-weight: bold; }
-    footer {
-      text-align: center;
-      padding: 25px 15px;
-      border-top: 1px solid #29405a;
-      color: #bdcadb;
+
+    .about p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about-panel {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--panel);
+    }
+
+    .about-panel strong {
+      color: var(--gold);
       font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .about-panel p { margin-bottom: 0; }
+
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-brand {
+      color: var(--white);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .footer-brand span { color: var(--gold); }
+
+    @media (max-width: 850px) {
+      .topbar {
+        padding: 18px 0;
+        flex-direction: column;
+      }
+
+      nav { justify-content: center; gap: 16px; }
+
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .about { grid-template-columns: 1fr; gap: 22px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 72px 16px 65px; }
+      h1 { letter-spacing: -1px; }
+      .hero p { font-size: 14px; }
+      .promise-inner { grid-template-columns: 1fr; gap: 12px; }
+      .promise-item + .promise-item {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        padding-top: 15px;
+      }
+      .cards { grid-template-columns: 1fr; }
+      .card p { min-height: auto; }
+      main { padding: 48px 0; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">RADIO <span class="gold">VOZ DEL CIELO</span></div>
-    <p style="color:#bdcadb;font-size:13px;margin-bottom:0">
-      Una voz que conecta tu corazón con Dios
-    </p>
+    <div class="container topbar">
+      <a class="brand" href="#inicio" aria-label="Radio Voz del Cielo, inicio">
+        <div class="brand-symbol" aria-hidden="true">✦</div>
+        <div class="brand-name">RADIO <span>VOZ DEL CIELO</span></div>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <a href="#programas">Programas</a>
+        <a href="#predicas">Prédicas</a>
+        <a href="#en-vivo">En vivo</a>
+        <a href="#premium">Premium</a>
+      </nav>
+    </div>
   </header>
 
-  <nav>
-    <a href="#programas">Programas</a>
-    <a href="#predicas">Prédicas</a>
-    <a href="#en-vivo">En vivo</a>
-    <a href="#premium">Premium</a>
-  </nav>
-
-  <section class="hero">
-    <div class="tag">FE · ESPERANZA · PROPÓSITO</div>
-    <h1>Una palabra puede<br><span class="gold">transformar tu vida.</span></h1>
-    <p>Bienvenido a Radio Voz del Cielo, un espacio para escuchar la Palabra de Dios, fortalecer tu fe y encontrar esperanza cada día.</p>
-    <a class="button" href="#programas">EXPLORAR CONTENIDO</a>
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="eyebrow">Fe que inspira · Palabra que transforma</div>
+      <h1>Hay una voz que<br><span>alimenta tu esperanza.</span></h1>
+      <p>
+        Un espacio para escuchar la Palabra de Dios, fortalecer tu fe
+        y recordar lo que verdaderamente importa.
+      </p>
+      <div class="actions">
+        <a class="button button-primary" href="#predicas">EXPLORAR PRÉDICAS</a>
+        <a class="button button-secondary" href="#en-vivo">VER TRANSMISIONES</a>
+      </div>
+    </div>
   </section>
 
-  <main>
-    <h2>Encuentra lo que necesitas</h2>
-    <p class="intro">Mensajes y espacios cristianos para acompañarte en tu caminar con Dios.</p>
-
-    <div class="grid">
-      <section class="card" id="programas">
-        <div class="icon">🎙️</div>
-        <h3>Programas</h3>
-        <p>Conoce nuestros espacios, temas y próximos horarios.</p>
-        <span class="status">PRÓXIMAMENTE</span>
-      </section>
-
-      <section class="card" id="predicas">
-        <div class="icon">📖</div>
-        <h3>Prédicas</h3>
-        <p>Enseñanzas bíblicas para crecer en la fe y aplicar la Palabra.</p>
-        <span class="status">PRÓXIMAMENTE</span>
-      </section>
-
-      <section class="card" id="en-vivo">
-        <div class="icon">🔴</div>
-        <h3>Transmisión en vivo</h3>
-        <p>Conéctate a nuestras emisiones en los horarios anunciados.</p>
-        <span class="status">PRÓXIMOS HORARIOS</span>
-      </section>
-
-      <section class="card" id="premium">
-        <div class="icon">⭐</div>
-        <h3>Gospel Premium</h3>
-        <p>Un espacio futuro con contenido exclusivo.</p>
-        <span class="status">EN DESARROLLO</span>
-      </section>
+  <section class="promise">
+    <div class="container promise-inner">
+      <div class="promise-item"><span>✦</span>PALABRA DE DIOS</div>
+      <div class="promise-item"><span>♫</span>MENSAJES CON PROPÓSITO</div>
+      <div class="promise-item"><span>♡</span>FE Y ESPERANZA</div>
     </div>
+  </section>
+
+  <main class="container">
+    <section id="contenido">
+      <div class="section-heading">
+        <div class="eyebrow">ENCUENTRA TU ESPACIO</div>
+        <h2>Contenido que edifica.</h2>
+        <p>Explora nuestros espacios y encuentra mensajes para acompañar tu vida espiritual.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card" id="programas">
+          <div class="card-icon" aria-hidden="true">🎙</div>
+          <h3>Programas</h3>
+          <p>Espacios cristianos con enseñanzas, reflexiones y conversaciones que edifican.</p>
+          <a class="card-link" href="#contacto">CONOCE MÁS ↗</a>
+        </article>
+
+        <article class="card" id="predicas">
+          <div class="card-icon" aria-hidden="true">📖</div>
+          <h3>Prédicas</h3>
+          <p>Mensajes basados en la Biblia para crecer en el conocimiento de Dios.</p>
+          <a class="card-link" href="#contacto">PRÓXIMAMENTE ↗</a>
+        </article>
+
+        <article class="card" id="en-vivo">
+          <div class="card-icon" aria-hidden="true">◉</div>
+          <h3>Transmisión en vivo</h3>
+          <p>Conéctate a nuestras emisiones especiales en los horarios anunciados.</p>
+          <a class="card-link" href="#contacto">CONSULTA PRÓXIMOS HORARIOS ↗</a>
+        </article>
+
+        <article class="card" id="premium">
+          <div class="card-icon" aria-hidden="true">✧</div>
+          <h3>Gospel Premium</h3>
+          <p>Un espacio futuro para acceder a contenido especial y exclusivo.</p>
+          <a class="card-link" href="#contacto">EN DESARROLLO ↗</a>
+        </article>
+      </div>
+
+      <div class="notice">
+        Estamos preparando nuevos contenidos para ti. Los programas, las prédicas
+        y las transmisiones se habilitarán a medida que estén disponibles.
+      </div>
+    </section>
+
+    <section class="quote">
+      <blockquote>
+        “No solo escuches una voz.<br>
+        <span>Encuentra el mensaje que fortalece tu fe.</span>”
+      </blockquote>
+      <p>RADIO VOZ DEL CIELO</p>
+    </section>
+
+    <section class="about" id="contacto">
+      <div>
+        <div class="eyebrow">NUESTRA ESENCIA</div>
+        <h2>Una plataforma con propósito.</h2>
+        <p>
+          Queremos acercar mensajes cristianos a personas que buscan esperanza,
+          dirección y una relación más profunda con Dios.
+        </p>
+      </div>
+      <div class="about-panel">
+        <strong>BIENVENIDO A CASA</strong>
+        <p>
+          Gracias por visitar Radio Voz del Cielo. Estamos construyendo este
+          espacio paso a paso para compartir contenido que edifique tu vida.
+        </p>
+      </div>
+    </section>
   </main>
 
   <footer>
-    RADIO VOZ DEL CIELO · Contenido para fortalecer tu fe.
+    <div class="container footer-inner">
+      <div class="footer-brand">RADIO <span>VOZ DEL CIELO</span></div>
+      <div>Fe · Esperanza · Propósito</div>
+      <div>© 2026 Radio Voz del Cielo</div>
+    </div>
   </footer>
 </body>
 </html>
