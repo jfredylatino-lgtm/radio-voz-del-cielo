@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071426">
+  <title>Radio Voz del Cielo</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #071426;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 24px 12px;
+      border-bottom: 1px solid #29405a;
+    }
+    .logo { font-size: 23px; font-weight: 900; }
+    .gold { color: #f5bd55; }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 18px 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .hero {
+      text-align: center;
+      padding: 65px 20px;
+      background: radial-gradient(ellipse at top, #19436a, #071426 75%);
+    }
+    .tag {
+      color: #f5bd55;
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+    h1 { font-size: clamp(36px, 9vw, 56px); margin: 22px 0; }
+    .hero p {
+      color: #cfdae8;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+    .button {
+      display: inline-block;
+      background: #f5bd55;
+      color: #071426;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+    main { max-width: 1000px; margin: auto; padding: 30px 18px 55px; }
+    .intro { color: #bdcadb; line-height: 1.7; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 25px;
+    }
+    .card {
+      background: #102238;
+      border: 1px solid #29405a;
+      border-radius: 16px;
+      padding: 23px;
+      scroll-margin-top: 15px;
+    }
+    .icon { font-size: 32px; }
+    .card p { color: #bdcadb; line-height: 1.6; font-size: 14px; }
+    .status { color: #f5bd55; font-size: 11px; font-weight: bold; }
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      border-top: 1px solid #29405a;
+      color: #bdcadb;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">RADIO <span class="gold">VOZ DEL CIELO</span></div>
+    <p style="color:#bdcadb;font-size:13px;margin-bottom:0">
+      Una voz que conecta tu corazón con Dios
+    </p>
+  </header>
+
+  <nav>
+    <a href="#programas">Programas</a>
+    <a href="#predicas">Prédicas</a>
+    <a href="#en-vivo">En vivo</a>
+    <a href="#premium">Premium</a>
+  </nav>
+
+  <section class="hero">
+    <div class="tag">FE · ESPERANZA · PROPÓSITO</div>
+    <h1>Una palabra puede<br><span class="gold">transformar tu vida.</span></h1>
+    <p>Bienvenido a Radio Voz del Cielo, un espacio para escuchar la Palabra de Dios, fortalecer tu fe y encontrar esperanza cada día.</p>
+    <a class="button" href="#programas">EXPLORAR CONTENIDO</a>
+  </section>
+
+  <main>
+    <h2>Encuentra lo que necesitas</h2>
+    <p class="intro">Mensajes y espacios cristianos para acompañarte en tu caminar con Dios.</p>
+
+    <div class="grid">
+      <section class="card" id="programas">
+        <div class="icon">🎙️</div>
+        <h3>Programas</h3>
+        <p>Conoce nuestros espacios, temas y próximos horarios.</p>
+        <span class="status">PRÓXIMAMENTE</span>
+      </section>
+
+      <section class="card" id="predicas">
+        <div class="icon">📖</div>
+        <h3>Prédicas</h3>
+        <p>Enseñanzas bíblicas para crecer en la fe y aplicar la Palabra.</p>
+        <span class="status">PRÓXIMAMENTE</span>
+      </section>
+
+      <section class="card" id="en-vivo">
+        <div class="icon">🔴</div>
+        <h3>Transmisión en vivo</h3>
+        <p>Conéctate a nuestras emisiones en los horarios anunciados.</p>
+        <span class="status">PRÓXIMOS HORARIOS</span>
+      </section>
+
+      <section class="card" id="premium">
+        <div class="icon">⭐</div>
+        <h3>Gospel Premium</h3>
+        <p>Un espacio futuro con contenido exclusivo.</p>
+        <span class="status">EN DESARROLLO</span>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    RADIO VOZ DEL CIELO · Contenido para fortalecer tu fe.
+  </footer>
+</body>
+</html>
